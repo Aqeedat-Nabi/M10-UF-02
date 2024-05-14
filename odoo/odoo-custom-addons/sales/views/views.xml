@@ -10,6 +10,10 @@
           <field name="name"/>
           <field name="value"/>
           <field name="value2"/>
+          <field name="customer_id"/>
+          <field name="expiration_date"/>
+          <field name="quotation_date"/>
+          <field name="payment_terms"/>
         </tree>
       </field>
     </record>
@@ -18,7 +22,7 @@
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="sales.action_window">
-      <field name="name">Sales window</field>
+      <field name="name">Tic Quotations</field>
       <field name="res_model">sales.sales</field>
       <field name="view_mode">tree,form</field>
     </record>
@@ -42,19 +46,30 @@
 
     <!-- Top menu item -->
 
-    <menuitem name="Sales" id="sales.menu_root"/>
+    <menuitem name="Hospital Sales" id="sales.menu_root"/>
+    
 
     <!-- menu categories -->
 
-    <menuitem name="Menu 1" id="sales.menu_1" parent="sales.menu_root"/>
-    <menuitem name="Menu 2" id="sales.menu_2" parent="sales.menu_root"/>
+    <menuitem name="Tic Orders" id="sales.menu_orders" parent="sales.menu_root"/>
+    <menuitem name="Tic To Invoice" id="sales.menu_to_invoice" parent="sales.menu_root"/>
+    <menuitem name="Tic Products" id="sales.menu_products" parent="sales.menu_root"/>
+    <menuitem name="Tic Reporting" id="sales.menu_reporting" parent="sales.menu_root"/>
+    <menuitem name="Tic Configuration" id="sales.menu_configuration" parent="sales.menu_root"/>
+
 
     <!-- actions -->
 
-    <menuitem name="List" id="sales.menu_1_list" parent="sales.menu_1"
-              action="sales.action_window"/>
-    <menuitem name="Server to list" id="sales" parent="sales.menu_2"
-              action="sales.action_server"/>
+    <menuitem name="Orders" id="sales.menu_orders_list" parent="sales.menu_orders"
+                  action="sales.action_window"/>
+    <menuitem name="Invoices" id="sales" parent="sales.menu_to_invoice"
+                  action="sales.action_server"/>
+    <menuitem name="Products" id="sales.menu_products_list" parent="sales.menu_products"
+                  action="sales.action_window"/>
+    <menuitem name="Analysis" id="sales.menu_reporting_list" parent="sales.menu_reporting"
+                  action="sales.action_window"/> 
+    <menuitem name="Settings" id="sales.menu_configuration_list" parent="sales.menu_configuration"
+                  action="sales.action_window"/>                            
 
   </data>
 </odoo>

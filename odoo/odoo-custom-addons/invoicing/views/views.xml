@@ -10,6 +10,10 @@
           <field name="name"/>
           <field name="value"/>
           <field name="value2"/>
+          <field name="customer_id"/>
+          <field name="expiration_date"/>
+          <field name="quotation_date"/>
+          <field name="payment_terms"/>
         </tree>
       </field>
     </record>
@@ -18,7 +22,7 @@
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="invoicing.action_window">
-      <field name="name">Invoicing window</field>
+      <field name="name">TIC Invoices</field>
       <field name="res_model">invoicing.invoicing</field>
       <field name="view_mode">tree,form</field>
     </record>
@@ -42,19 +46,30 @@
 
     <!-- Top menu item -->
 
-    <menuitem name="Invoicing" id="invoicing.menu_root"/>
+    <menuitem name="Hospital Invoicing" id="invoicing.menu_root"/>
+
 
     <!-- menu categories -->
 
-    <menuitem name="Menu 1" id="invoicing.menu_1" parent="invoicing.menu_root"/>
-    <menuitem name="Menu 2" id="invoicing.menu_2" parent="invoicing.menu_root"/>
+    <menuitem name="Tic Costomers" id="invoicing.menu_orders" parent="invoicing.menu_root"/>
+    <menuitem name="Tic Vendors" id="invoicing.menu_vendors" parent="invoicing.menu_root"/>
+    <menuitem name="Tic Products" id="invoicing.menu_products" parent="invoicing.menu_root"/>
+    <menuitem name="Tic Reporting" id="invoicing.menu_reporting" parent="invoicing.menu_root"/>
+    <menuitem name="Tic Configuration" id="invoicing.menu_configuration" parent="invoicing.menu_root"/>
+
 
     <!-- actions -->
 
-    <menuitem name="List" id="invoicing.menu_1_list" parent="invoicing.menu_1"
-              action="invoicing.action_window"/>
-    <menuitem name="Server to list" id="invoicing" parent="invoicing.menu_2"
-              action="invoicing.action_server"/>
+    <menuitem name="Customers" id="invoicing.menu_orders_list" parent="invoicing.menu_orders"
+                  action="invoicing.action_window"/>
+    <menuitem name="Invoices" id="invoicing" parent="invoicing.menu_vendors"
+                  action="invoicing.action_server"/>
+    <menuitem name="Products" id="invoicing.menu_products_list" parent="invoicing.menu_products"
+                  action="invoicing.action_window"/>
+    <menuitem name="Analysis" id="invoicing.menu_reporting_list" parent="invoicing.menu_reporting"
+                  action="invoicing.action_window"/> 
+    <menuitem name="Settings" id="invoicing.menu_configuration_list" parent="invoicing.menu_configuration"
+                  action="invoicing.action_window"/> 
 
   </data>
 </odoo>
