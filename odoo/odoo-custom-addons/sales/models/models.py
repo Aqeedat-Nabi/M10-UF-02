@@ -7,7 +7,7 @@ class Sales(models.Model):
     _name = 'sales.sales'
     _description = 'Sales'
 
-    name = fields.Char()
+    product_name = fields.Char()
     value = fields.Integer()
     value2 = fields.Float(compute="_value_pc", store=True)
     description = fields.Text()
@@ -26,4 +26,3 @@ class Sales(models.Model):
     def _value_pc(self):
         for record in self:
             record.value2 = float(record.value) / 100
-

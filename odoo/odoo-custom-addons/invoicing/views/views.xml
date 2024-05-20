@@ -7,9 +7,8 @@
       <field name="model">invoicing.invoicing</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="name"/>
+          <field name="customer_invoice"/>
           <field name="value"/>
-          <field name="value2"/>
           <field name="customer_id"/>
           <field name="expiration_date"/>
           <field name="quotation_date"/>
